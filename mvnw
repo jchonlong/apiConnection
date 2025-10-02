@@ -18,12 +18,12 @@ esac
 # set JAVACMD y JAVACCMD
 set_java_home() {
   if [ -n "${JAVA_HOME-}" ]; then
-    JAVACMD="$JAVA_HOME/bin/java"
-    JAVACCMD="$JAVA_HOME/bin/javac"
-  else
-    # 🚀 Fallback: usar el java del PATH (lo que Render sí tiene)
     JAVACMD="$(command -v java || true)"
     JAVACCMD="$(command -v javac || true)"
+  else
+    # 🚀 Fallback: usar el java del PATH (lo que Render sí tiene)
+    JAVACMD="$JAVA_HOME/bin/java"
+    JAVACCMD="$JAVA_HOME/bin/javac"
   fi
 
   if [ ! -x "${JAVACMD-}" ] || [ ! -x "${JAVACCMD-}" ]; then
